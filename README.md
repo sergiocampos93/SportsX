@@ -4,7 +4,7 @@
 
 1 - Template comando:
 
-docker run **--name** sportsx_postgres **-e POSTGRES_PASSWORD**=docker **-p** 5432:5432 **-d** postgres:12.3
+_docker run **--name** sportsx_postgres **-e POSTGRES_PASSWORD**=docker **-p** 5432:5432 **-d** postgres:12.3_
 
 Entendendo os parâmetros:
 
