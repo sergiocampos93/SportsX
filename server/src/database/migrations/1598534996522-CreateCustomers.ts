@@ -7,7 +7,7 @@ export default class CreateCustomers1598534996522 implements MigrationInterface 
       columns: [
         {
           name: 'id',
-          type: 'varchar',
+          type: 'uuid',
           isPrimary: true,
           generationStrategy: 'uuid',
           default: 'uuid_generate_v4()',
@@ -23,6 +23,11 @@ export default class CreateCustomers1598534996522 implements MigrationInterface 
           isNullable: false,
         },
         {
+          name: 'cpf_cnpj',
+          type: 'varchar',
+          isNullable: false,
+        },
+        {
           name: 'cep',
           type: 'varchar',
           isNullable: true,
@@ -34,11 +39,6 @@ export default class CreateCustomers1598534996522 implements MigrationInterface 
         },
         {
           name: 'classification',
-          type: 'varchar',
-          isNullable: false,
-        },
-        {
-          name: 'phone',
           type: 'varchar',
           isNullable: false,
         },

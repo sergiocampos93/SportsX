@@ -6,9 +6,6 @@ class Customer {
   id: string;
 
   @Column()
-  isLegalEntity: boolean;
-
-  @Column()
   name: string;
 
   @Column()

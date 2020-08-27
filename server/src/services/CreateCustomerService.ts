@@ -1,10 +1,9 @@
 import { getCustomRepository } from 'typeorm';
-import Customer from '../models/Customers';
+import Customer from '../models/Customer';
 import CustomerRepository from '../repositories/CustomersRepository';
 
 interface Request{
   name: string;
-  isLegalEntity: boolean;
   cep: string;
   email: string;
   classification: 'ativo' | 'inativo' | 'preferencial';
@@ -13,12 +12,12 @@ interface Request{
 
 class CreateCustomerService {
   public async execute({
-    name, isLegalEntity, cep, email, classification, phone,
+    name, cep, email, classification, phone,
   }:Request): Promise<Customer> {
     const customerRepository = getCustomRepository(CustomerRepository);
 
     const customer = customerRepository.create({
-      name, isLegalEntity, cep, email, classification, phone,
+      name, cep, email, classification, phone,
     });
 
     await customerRepository.save(customer);

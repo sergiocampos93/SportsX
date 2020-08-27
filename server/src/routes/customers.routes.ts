@@ -15,13 +15,13 @@ customersRouter.get('/', async (request, response) => {
 customersRouter.post('/', async (request, response) => {
   try {
     const {
-      name, isLegalEntity, cep, email, classification, phone,
+      name, cep, email, classification, phone,
     } = request.body;
 
     const createCustomer = new CreateCustomerService();
 
     const customer = await createCustomer.execute({
-      name, isLegalEntity, cep, email, classification, phone,
+      name, cep, email, classification, phone,
     });
     return response.json(customer);
   } catch (err) {
