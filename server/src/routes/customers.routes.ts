@@ -5,23 +5,23 @@ import CreateCustomerService from '../services/CreateCustomerService';
 
 const customersRouter = Router();
 
-customersRouter.get('/', (request, response) => {
+customersRouter.get('/', async (request, response) => {
   const customersRepository = getCustomRepository(CustomersRepository);
-  const customers = customersRepository.find();
+  const customers = await customersRepository.find();
 
   response.json(customers);
 });
 
-customersRouter.post('/', (request, response) => {
+customersRouter.post('/', async (request, response) => {
   try {
     const {
-      name, cep, email, classification, phone,
+      name, isLegalEntity, cep, email, classification, phone,
     } = request.body;
 
     const createCustomer = new CreateCustomerService();
 
-    const customer = createCustomer.execute({
-      name, cep, email, classification, phone,
+    const customer = await createCustomer.execute({
+      name, isLegalEntity, cep, email, classification, phone,
     });
     return response.json(customer);
   } catch (err) {

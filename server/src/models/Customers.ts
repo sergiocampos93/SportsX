@@ -6,6 +6,9 @@ class Customer {
   id: string;
 
   @Column()
+  isLegalEntity: boolean;
+
+  @Column()
   name: string;
 
   @Column()
@@ -15,7 +18,7 @@ class Customer {
   email: string;
 
   @Column()
-  classification: string;
+  classification: 'ativo' | 'inativo' | 'preferencial';
 
   @Column()
   phone: string;
