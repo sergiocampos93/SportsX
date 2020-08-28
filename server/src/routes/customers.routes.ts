@@ -31,7 +31,7 @@ customersRouter.post('/', async (request, response) => {
 });
 
 customersRouter.delete('/:id', async (request, response) => {
-  const { id } = request.body;
+  const { id } = request.params;
   const deleteCustomer = new DeleteCustomerService();
   await deleteCustomer.execute(id);
 
