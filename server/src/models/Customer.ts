@@ -9,6 +9,12 @@ class Customer {
   name: string;
 
   @Column()
+  isLegalEntity: boolean;
+
+  @Column()
+  cpf_cnpj: string;
+
+  @Column()
   cep: string;
 
   @Column()
@@ -16,9 +22,6 @@ class Customer {
 
   @Column()
   classification: 'ativo' | 'inativo' | 'preferencial';
-
-  @Column()
-  phone: string;
 }
 
 export default Customer;
