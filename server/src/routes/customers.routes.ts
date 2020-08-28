@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { getCustomRepository } from 'typeorm';
 import CustomersRepository from '../repositories/CustomersRepository';
 import CreateCustomerService from '../services/CreateCustomerService';
+import DeleteCustomerService from '../services/DeleteCustomerService';
 
 const customersRouter = Router();
 
@@ -27,6 +28,14 @@ customersRouter.post('/', async (request, response) => {
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }
+});
+
+customersRouter.delete('/:id', async (request, response) => {
+  const { id } = request.body;
+  const deleteCustomer = new DeleteCustomerService();
+  await deleteCustomer.execute(id);
+
+  return response.status(204).send({});
 });
 
 export default customersRouter;
