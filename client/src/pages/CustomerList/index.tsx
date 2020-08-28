@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import api from '../../services/api';
 
+import { Container } from './styles';
+
 interface Customer {
   id: string;
   name: string;
@@ -28,7 +30,7 @@ const CustomerList: React.FC = () => {
     setCustomers(newList);
   }
   return (
-    <>
+    <Container>
       <h1>Lista de cliente</h1>
       <table>
         <thead>
@@ -66,7 +68,7 @@ const CustomerList: React.FC = () => {
           ))}
         </tbody>
       </table>
-    </>
+    </Container>
   );
 };
 
