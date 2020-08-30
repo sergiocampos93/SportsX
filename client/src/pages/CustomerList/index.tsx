@@ -2,7 +2,23 @@ import React, { useState, useEffect } from 'react';
 
 import api from '../../services/api';
 
-import { Container } from './styles';
+import {
+  Container,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  EditIcon,
+  TrashIcon,
+} from './styles';
+
+interface Phone {
+  id: string;
+  customer_id: string;
+  phone_number: string;
+}
 
 interface Customer {
   id: string;
@@ -12,6 +28,7 @@ interface Customer {
   cep: string;
   email: string;
   classification: string;
+  phones: Phone[];
 }
 
 const CustomerList: React.FC = () => {
@@ -31,43 +48,47 @@ const CustomerList: React.FC = () => {
   }
   return (
     <Container>
-      <h1>Lista de cliente</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Tipo</th>
-            <th>CPF / CNPJ</th>
-            <th>Nome / Razão social</th>
-            <th>CEP</th>
-            <th>E-mail</th>
-            <th>Classificação</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
+      <h1>Clientes</h1>
+      <Table>
+        <Thead>
+          <Tr>
+            <Th>Tipo</Th>
+            <Th>CPF / CNPJ</Th>
+            <Th>Nome / Razão social</Th>
+            <Th>CEP</Th>
+            <Th>E-mail</Th>
+            <Th>Classificação</Th>
+            <Th>Telefones</Th>
+            <Th>Deletar / Alterar</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
           {customers.map(customer => (
-            <tr key={customer.id}>
-              <td>
+            <Tr key={customer.id}>
+              <Td>
                 {customer.isLegalEntity ? 'Pessoa Jurídica' : 'Pessoa Física'}
-              </td>
-              <td>{customer.cpf_cnpj}</td>
-              <td>{customer.name}</td>
-              <td>{customer.cep}</td>
-              <td>{customer.email}</td>
-              <td>{customer.classification}</td>
-              <td>
-                <button
-                  type="button"
+              </Td>
+              <Td>{customer.cpf_cnpj}</Td>
+              <Td>{customer.name}</Td>
+              <Td>{customer.cep}</Td>
+              <Td>{customer.email}</Td>
+              <Td>{customer.classification}</Td>
+              <Td>
+                {customer.phones.map(phone =>
+                  phone.customer_id === customer.id ? phone.phone_number : null,
+                )}
+              </Td>
+              <Td>
+                <TrashIcon
+                  size={24}
                   onClick={() => handleRemodeCustomer(customer.id)}
-                >
-                  Apagar
-                </button>
-                <button type="button">Alterar</button>
-              </td>
-            </tr>
+                />
+                <EditIcon size={24} />
+              </Td>
+            </Tr>
           ))}
-        </tbody>
-      </table>
+        </Tbody>
+      </Table>
     </Container>
   );
 };

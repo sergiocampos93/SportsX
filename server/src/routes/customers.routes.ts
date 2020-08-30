@@ -8,7 +8,14 @@ const customersRouter = Router();
 
 customersRouter.get('/', async (request, response) => {
   const customersRepository = getCustomRepository(CustomersRepository);
-  const customers = await customersRepository.find();
+  const customers = await customersRepository.findJoinedPhones();
+
+  response.json(customers);
+});
+
+customersRouter.get('/:name', async (request, response) => {
+  const customersRepository = getCustomRepository(CustomersRepository);
+  const customers = await customersRepository.findByName(request.params.name);
 
   response.json(customers);
 });
