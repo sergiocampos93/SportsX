@@ -10,8 +10,10 @@ import {
   Tr,
   Th,
   Td,
+  Ul,
   EditIcon,
   TrashIcon,
+  PageTitle,
 } from './styles';
 
 interface Phone {
@@ -48,7 +50,7 @@ const CustomerList: React.FC = () => {
   }
   return (
     <Container>
-      <h1>Clientes</h1>
+      <PageTitle>Clientes</PageTitle>
       <Table>
         <Thead>
           <Tr>
@@ -74,9 +76,13 @@ const CustomerList: React.FC = () => {
               <Td>{customer.email}</Td>
               <Td>{customer.classification}</Td>
               <Td>
-                {customer.phones.map(phone =>
-                  phone.customer_id === customer.id ? phone.phone_number : null,
-                )}
+                <Ul>
+                  {customer.phones.map(phone =>
+                    phone.customer_id === customer.id ? (
+                      <li>{phone.phone_number}</li>
+                    ) : null,
+                  )}
+                </Ul>
               </Td>
               <Td>
                 <TrashIcon

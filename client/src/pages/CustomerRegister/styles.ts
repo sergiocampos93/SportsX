@@ -6,6 +6,10 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
+export const PageTitle = styled.h2`
+  margin-top: 75px;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex: 1;

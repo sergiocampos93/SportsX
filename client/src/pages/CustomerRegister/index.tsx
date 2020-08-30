@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import {
   Container,
+  PageTitle,
   Form,
   Input,
   Button,
@@ -28,7 +29,7 @@ const CustomerRegister: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<FormData>();
   return (
     <Container>
-      <h1>Cadastrar cliente</h1>
+      <PageTitle>Cadastrar cliente</PageTitle>
       <Form
         onSubmit={handleSubmit(async formData => {
           console.log(formData);
