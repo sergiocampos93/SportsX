@@ -14,7 +14,7 @@ Agora é hora de executar a aplicação front-end. Entre dentro da pasta _client
 
 ## Criando container usando o docker:
 
-1 - Template comando:
+Após instalar o docker no seu computador, utilize o comando abaixo como template:
 
 _docker run **--name** sportsx_postgres **-e POSTGRES_PASSWORD**=docker **-p** 5432:5432 **-d** postgres:12.3_
 
@@ -29,5 +29,6 @@ Entendendo os parâmetros:
 **-d**: O nome da imagem que vamos utilizar no nosso container. No nosso caso, vamos usar o postgres na versão _12.3_.
 
 **_Obs: Você deve especificar a versão 12.3 (versão utilizada na minha máquina) para que não haja nenhum problema de compatibilidade._** 
+**_Obs: Se você mudar o nome de qualquer um dos parâmetros, com exceção do nome do container, é necessário que você configure o arquivo ormconfig.json com os memsos valores que você usou. **
 
 
