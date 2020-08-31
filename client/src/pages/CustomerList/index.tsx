@@ -15,6 +15,7 @@ import {
   EditIcon,
   TrashIcon,
   PageTitle,
+  Button,
 } from './styles';
 
 interface Phone {
@@ -98,13 +99,15 @@ const CustomerList: React.FC = () => {
                     history.push({
                       pathname: '/register',
                       state: customer,
-                    })}
+                    })
+                  }
                 />
               </Td>
             </Tr>
           ))}
         </Tbody>
       </Table>
+      <Button onClick={() => history.push('/register')}>Novo Cliente</Button>
     </Container>
   );
 };

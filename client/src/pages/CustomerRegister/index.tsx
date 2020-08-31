@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { useHistory } from 'react-router-dom';
+
 import {
   Container,
   PageTitle,
@@ -39,6 +41,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
   location: { state },
 }) => {
   const isNewRegister = state === undefined;
+  const history = useHistory();
   type FormData = {
     id?: string;
     name: string;
@@ -68,6 +71,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
           if (isNewRegister) {
             await api.post('customers', formatedData);
             alert('Cliente cadastrado com sucesso!');
+            history.push('/');
           } else {
             formatedData = {
               id: state.id,
@@ -75,6 +79,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
             };
             await api.post('customers/update', formatedData);
             alert('Dados do cliente atualizados com sucesso!');
+            history.push('/');
           }
         })}
       >

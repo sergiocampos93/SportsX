@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { shade } from 'polished';
+
 import { FiTrash2, FiEdit2 } from 'react-icons/fi';
 
 export const Container = styled.div``;
@@ -50,5 +52,20 @@ export const EditIcon = styled(FiEdit2)`
   margin-left: 20px;
   &:hover {
     color: #0f79af;
+  }
+`;
+export const Button = styled.button`
+  outline: 0;
+  cursor: pointer;
+  background: #0f79af;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 25px;
+  padding: 10px;
+  font-size: 18px;
+
+  &:hover {
+    background: ${shade(0.2, '#0f79af')};
   }
 `;
