@@ -28,7 +28,9 @@ Entendendo os parâmetros:
 
 **-d**: O nome da imagem que vamos utilizar no nosso container. No nosso caso, vamos usar o postgres na versão _12.3_.
 
-**_Obs: Você deve especificar a versão 12.3 (versão utilizada na minha máquina) para que não haja nenhum problema de compatibilidade._** 
-**_Obs: Se você mudar o nome de qualquer um dos parâmetros, com exceção do nome do container, é necessário que você configure o arquivo ormconfig.json com os memsos valores que você usou. _**
+**_
+Obs: Você deve especificar a versão 12.3 (versão utilizada na minha máquina) para que não haja nenhum problema de compatibilidade.
+Obs: Se você mudar o nome de qualquer um dos parâmetros, com exceção do nome do container, é necessário que você configure o arquivo ormconfig.json com os memsos valores que você usou.
+_** 
 
 
