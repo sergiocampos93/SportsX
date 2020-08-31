@@ -18,8 +18,29 @@ import api from '../../services/api';
 
 import InputError from '../../components/InputError';
 
-const CustomerRegister: React.FC = () => {
+interface Phone {
+  id: string;
+  customer_id: string;
+  phone_number: string;
+}
+
+interface Customer {
+  id: string;
+  name: string;
+  isLegalEntity: boolean;
+  cpf_cnpj: string;
+  cep: string;
+  email: string;
+  classification: string;
+  phones: Phone[];
+}
+
+const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
+  location: { state },
+}) => {
+  const isNewRegister = state === undefined;
   type FormData = {
+    id?: string;
     name: string;
     isLegalEntity: boolean | number;
     cpf_cnpj: string;
@@ -32,18 +53,29 @@ const CustomerRegister: React.FC = () => {
   const [entity, setEntity] = useState(false);
   return (
     <Container>
-      <PageTitle>Cadastrar cliente</PageTitle>
+      <PageTitle>
+        {isNewRegister ? 'Cadastrar Cliente' : 'Atualizar Cliente'}
+      </PageTitle>
       <Form
         onSubmit={handleSubmit(async ({ phones, isLegalEntity, ...rest }) => {
-          const formatedData = {
+          let formatedData = {
             isLegalEntity: entity,
             phones: phones
               .split(/(\r\n|\r|\n)/)
               .filter(phone => phone.length >= 8),
             ...rest,
           };
-          await api.post('customers', formatedData);
-          alert('Cliente cadastrado com sucesso!');
+          if (isNewRegister) {
+            await api.post('customers', formatedData);
+            alert('Cliente cadastrado com sucesso!');
+          } else {
+            formatedData = {
+              id: state.id,
+              ...formatedData,
+            };
+            await api.put('customers', formatedData);
+            alert('Dados do cliente atualizados com sucesso!');
+          }
         })}
       >
         <RadioContent>
@@ -72,6 +104,7 @@ const CustomerRegister: React.FC = () => {
           </label>
         </RadioContent>
         <Input
+          value={state?.cpf_cnpj}
           placeholder={
             entity ? 'CNPJ (somente números)' : 'CPF (somente números)'
           }
@@ -86,6 +119,7 @@ const CustomerRegister: React.FC = () => {
         />
         {errors.cpf_cnpj && <InputError>{errors.cpf_cnpj.message}</InputError>}
         <Input
+          value={state?.name}
           name="name"
           placeholder="Nome / Razão Social"
           ref={register({
@@ -102,6 +136,7 @@ const CustomerRegister: React.FC = () => {
         />
         {errors.name && <InputError>{errors.name.message}</InputError>}
         <Input
+          value={state?.cep}
           name="cep"
           type="number"
           placeholder="CEP (somente números)"
@@ -119,6 +154,7 @@ const CustomerRegister: React.FC = () => {
         />
         {errors.cep && <InputError>{errors.cep.message}</InputError>}
         <Input
+          value={state?.email}
           name="email"
           type="email"
           placeholder="E-mail"
@@ -146,6 +182,7 @@ const CustomerRegister: React.FC = () => {
         <PhonesContent>
           <label htmlFor="phones">Telefones:</label>
           <TextArea
+            value={state.phones.map(phone => phone.phone_number)}
             placeholder="Separe cada um dos telefones por linhas."
             name="phones"
             id="phones"
@@ -155,7 +192,9 @@ const CustomerRegister: React.FC = () => {
           />
         </PhonesContent>
 
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit">
+          {isNewRegister ? 'Cadastrar' : 'Atualizar'}
+        </Button>
       </Form>
     </Container>
   );

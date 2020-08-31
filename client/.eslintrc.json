@@ -36,6 +36,7 @@
     "camelcase":"off",
     "prettier/prettier": "error",
     "eqeqeq": "off",
+    "react/prop-types": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "import/extensions": [
       "error",

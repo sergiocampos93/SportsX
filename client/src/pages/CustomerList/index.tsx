@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -35,6 +36,7 @@ interface Customer {
 
 const CustomerList: React.FC = () => {
   const [customers, setCustomers] = useState<Customer[]>([]);
+  const history = useHistory();
   useEffect(() => {
     async function loadCustomers(): Promise<void> {
       const response = await api.get('/customers');
@@ -90,7 +92,14 @@ const CustomerList: React.FC = () => {
                   size={24}
                   onClick={() => handleRemodeCustomer(customer.id)}
                 />
-                <EditIcon size={24} />
+                <EditIcon
+                  size={24}
+                  onClick={() =>
+                    history.push({
+                      pathname: '/register',
+                      state: customer,
+                    })}
+                />
               </Td>
             </Tr>
           ))}
