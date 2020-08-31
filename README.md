@@ -16,7 +16,7 @@ Agora é hora de executar a aplicação front-end. Entre dentro da pasta _client
 
 Guia de instalação do docker: https://www.notion.so/Instalando-Docker-6290d9994b0b4555a153576a1d97bee2
 
-Após instalar o docker no seu computador, utilize o comando abaixo como template:
+Após instalar o docker no seu computador, em um terminal, utilize o comando abaixo como template:
 
 _docker run **--name** sportsx_postgres **-e POSTGRES_PASSWORD**=docker **-p** 5432:5432 **-d** postgres:12.3_
 
