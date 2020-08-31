@@ -1,5 +1,11 @@
 # SportsX
 
+## Colocando a API no ar
+
+Para colocar a API no ar, é necessário que você instale o postgres, **versão 12.3**, no seu computador. Eu recomendo que você instale o docker e crie um container, para garantir que não vai haver nenhum conflito com os softwares já instalados e configurações do seu computador. Após a instalação do postgres, você deve criar um banco de dados com o nome _sportsx_database_. Se quiser usar um nome diferente para o banco de dados, basta entrar dentro do arquivo _ormconfig.json_ e, na propriedade _database_, colocar o nome que desejar.
+
+Após instalar o postgres e criar o banco de dados, abra um terminal e entre no diretório server. INstale todas as dependências do projeto utilizando _npm_ ou _yarn_: _npm install_ ou _yarn_
+
 ## Criando container usando o docker:
 
 1 - Template comando:
