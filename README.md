@@ -10,12 +10,12 @@ Para manter o código de toda a aplicação padronizado, foram utilizadas 3 ferr
 
 No front-end, foram usadas as seguintes bibliotecas:
 
-_axios_: Biblioteca para consumir dados da API, utilizando promises.
-_react-router-dom_: Biblioteca par gerenciar as rotas da aplicação.
-_styled-components_: Biblioteca para isolar o css dentro do escopo do componenete, para que os estilos de um componente não afetem os estilos de outro componente.
-_react-hook-form_: Biblioteca para controlar e validar formulários. Validar se os dados estão no formato correto.
-_react-icons_: Biblioteca que disponibiliza vários tipos de ícones para serem utilizados na aplicação.
-_polished_: Biblioteca para escrever estilos dentro do javascript.
+_axios_: Biblioteca para consumir dados da API, utilizando promises.<br/>
+_react-router-dom_: Biblioteca par gerenciar as rotas da aplicação.<br/>
+_styled-components_: Biblioteca para isolar o css dentro do escopo do componenete, para que os estilos de um componente não afetem os estilos de outro componente.<br/>
+_react-hook-form_: Biblioteca para controlar e validar formulários. Validar se os dados estão no formato correto.<br/>
+_react-icons_: Biblioteca que disponibiliza vários tipos de ícones para serem utilizados na aplicação.<br/>
+_polished_: Biblioteca para escrever estilos dentro do javascript.<br/>
 
 ### Back-end
 
