@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import {
@@ -29,13 +29,17 @@ const CustomerRegister: React.FC = () => {
     phones: string;
   };
   const { register, handleSubmit, errors } = useForm<FormData>();
+  const [entity, setEntity] = useState(false);
+  const teste = () => {
+    console.log('teste');
+  };
   return (
     <Container>
       <PageTitle>Cadastrar cliente</PageTitle>
       <Form
         onSubmit={handleSubmit(async ({ phones, isLegalEntity, ...rest }) => {
           const formatedData = {
-            isLegalEntity: isLegalEntity == 1,
+            isLegalEntity: entity,
             phones: phones
               .split(/(\r\n|\r|\n)/)
               .filter(phone => phone.length >= 8),
@@ -54,6 +58,7 @@ const CustomerRegister: React.FC = () => {
               value={0}
               ref={register()}
               defaultChecked
+              onClick={() => setEntity(false)}
             />
             Pessoa Física
           </label>
@@ -64,11 +69,24 @@ const CustomerRegister: React.FC = () => {
               name="isLegalEntity"
               value={1}
               ref={register()}
+              onClick={() => setEntity(true)}
             />
             Pessoa Jurídica
           </label>
         </RadioContent>
-        <Input placeholder="CPF / CNPJ" name="cpf_cnpj" ref={register()} />
+        <Input
+          placeholder={
+            entity ? 'CNPJ (somente números)' : 'CPF (somente números)'
+          }
+          name="cpf_cnpj"
+          ref={register({
+            required: 'Campo obrigatório.',
+            pattern: {
+              value: entity ? /\d{14}/ : /\d{11}/,
+              message: 'Campo inválido. Somente números',
+            },
+          })}
+        />
         <Input
           name="name"
           placeholder="Nome / Razão Social"
