@@ -3,6 +3,7 @@ import { getCustomRepository } from 'typeorm';
 import CustomersRepository from '../repositories/CustomersRepository';
 import CreateCustomerService from '../services/CreateCustomerService';
 import DeleteCustomerService from '../services/DeleteCustomerService';
+import UpdateCustomerService from '../services/UpdateCustomerService';
 
 const customersRouter = Router();
 
@@ -32,6 +33,24 @@ customersRouter.post('/', async (request, response) => {
       name, isLegalEntity, cpf_cnpj, cep, email, classification, phones,
     });
     return response.json(customer);
+  } catch (err) {
+    return response.status(400).json({ error: err.message });
+  }
+});
+
+customersRouter.post('/update', async (request, response) => {
+  try {
+    const {
+      id, name, isLegalEntity, cpf_cnpj, cep, email, classification, phones,
+    } = request.body;
+
+    const updateCustomer = new UpdateCustomerService();
+
+    const customerUpdated = await updateCustomer.execute({
+      id, name, isLegalEntity, cpf_cnpj, cep, email, classification, phones,
+    });
+
+    return response.json(customerUpdated);
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }

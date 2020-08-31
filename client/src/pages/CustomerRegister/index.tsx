@@ -73,7 +73,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
               id: state.id,
               ...formatedData,
             };
-            await api.put('customers', formatedData);
+            await api.post('customers/update', formatedData);
             alert('Dados do cliente atualizados com sucesso!');
           }
         })}
@@ -104,7 +104,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
           </label>
         </RadioContent>
         <Input
-          value={state?.cpf_cnpj}
+          defaultValue={state?.cpf_cnpj}
           placeholder={
             entity ? 'CNPJ (somente números)' : 'CPF (somente números)'
           }
@@ -119,7 +119,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
         />
         {errors.cpf_cnpj && <InputError>{errors.cpf_cnpj.message}</InputError>}
         <Input
-          value={state?.name}
+          defaultValue={state?.name}
           name="name"
           placeholder="Nome / Razão Social"
           ref={register({
@@ -136,7 +136,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
         />
         {errors.name && <InputError>{errors.name.message}</InputError>}
         <Input
-          value={state?.cep}
+          defaultValue={state?.cep}
           name="cep"
           type="number"
           placeholder="CEP (somente números)"
@@ -154,7 +154,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
         />
         {errors.cep && <InputError>{errors.cep.message}</InputError>}
         <Input
-          value={state?.email}
+          defaultValue={state?.email}
           name="email"
           type="email"
           placeholder="E-mail"
@@ -182,7 +182,7 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
         <PhonesContent>
           <label htmlFor="phones">Telefones:</label>
           <TextArea
-            value={state.phones.map(phone => phone.phone_number)}
+            defaultValue={state?.phones.map(phone => phone.phone_number)}
             placeholder="Separe cada um dos telefones por linhas."
             name="phones"
             id="phones"
