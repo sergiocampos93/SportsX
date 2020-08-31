@@ -1,5 +1,24 @@
 # SportsX
 
+## Sobre a aplicação
+
+### Padrões de projetos
+
+Para manter o código de toda a aplicação padronizado, foram utilizadas 3 ferramentas: _EditoConfig_, _EsLint_ e _Prettier_. Todo o projeto foi desenvolvido utilizando typescript.
+
+### Front-end
+
+No front-end, foram usadas as seguintes bibliotecas:
+
+_axios_: Biblioteca para consumir dados da API, utilizando promises.
+_react-router-dom_: Biblioteca par gerenciar as rotas da aplicação.
+_styled-components_: Biblioteca para isolar o css dentro do escopo do componenete, para que os estilos de um componente não afetem os estilos de outro componente.
+_react-hook-form_: Biblioteca para controlar e validar formulários. Validar se os dados estão no formato correto.
+_react-icons_: Biblioteca que disponibiliza vários tipos de ícones para serem utilizados na aplicação.
+_polished_: Biblioteca para escrever estilos dentro do javascript.
+
+### Back-end
+
 ## Colocando a API no ar e rodando a Aplicação
 
 Para colocar a API no ar, é necessário que você instale o postgres, **versão 12.3**, no seu computador. Eu recomendo que você instale o docker e crie um container, para garantir que não vai haver nenhum conflito com os softwares já instalados e configurações do seu computador. Após a instalação do postgres, você deve criar um banco de dados com o nome _sportsx_database_. Se quiser usar um nome diferente para o banco de dados, basta entrar dentro do arquivo _ormconfig.json_ e, na propriedade _database_, colocar o nome que desejar.
