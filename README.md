@@ -32,7 +32,7 @@ Entendendo os parâmetros:
 
 **Obs: Você deve especificar a versão 12.3 (versão utilizada na minha máquina) para que não haja nenhum problema de compatibilidade.**
 
-**Obs: Se você mudar o nome de qualquer um dos parâmetros, com exceção do nome do container, é necessário que você configure o arquivo ormconfig.json com os memsos valores que você usou.**
+**Obs: Se você mudar o nome de qualquer um dos parâmetros, com exceção do nome do container, é necessário que você configure o arquivo ormconfig.json com os mesmos valores que você usou.**
 
 **Obs: Não se esqueça de criar o banco de dados. Se preferir, pode criar usando um SGBD, como o DBeaver.**
 
