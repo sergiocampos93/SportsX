@@ -1,6 +1,6 @@
 # SportsX
 
-## Colocando a API no ar
+## Colocando a API no ar e rodando a Aplicação
 
 Para colocar a API no ar, é necessário que você instale o postgres, **versão 12.3**, no seu computador. Eu recomendo que você instale o docker e crie um container, para garantir que não vai haver nenhum conflito com os softwares já instalados e configurações do seu computador. Após a instalação do postgres, você deve criar um banco de dados com o nome _sportsx_database_. Se quiser usar um nome diferente para o banco de dados, basta entrar dentro do arquivo _ormconfig.json_ e, na propriedade _database_, colocar o nome que desejar.
 
@@ -9,6 +9,8 @@ Após instalar o postgres e criar o banco de dados, abra um terminal e entre no 
 Após a instalação de todas as dependências, é necessário criar as tabelas no banco de dados. Para isso, é necessário que você execute as _migrations_ do projeto. Sendo assim, em um terminal, execute o comando: _yarn typeorm migration:run_ ou _npm run-script typeorm migration:run_.
 
 Por fim, execute a API, usando o comando _yarn start_ ou _npm start_. Se tudo ocorrer bem, irá aparecer uma mensagem no console do terminal com o seguinte texto: _Server is running on port 3333_.
+
+Agora é hora de executar a aplicação front-end. Entre dentro da pasta _client_ e instale todas as dependências do projeto, usando _yarn_ ou _npm_. Agora é só executar a aplicação, com mo comando _npm start_ ou _yarn start_.
 
 ## Criando container usando o docker:
 
