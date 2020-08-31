@@ -10,20 +10,20 @@ Para manter o código de toda a aplicação padronizado, foram utilizadas 3 ferr
 
 No front-end, foram usadas as seguintes bibliotecas:
 
-_axios_: Biblioteca para consumir dados da API, utilizando promises.<br/>
-_react-router-dom_: Biblioteca par gerenciar as rotas da aplicação.<br/>
-_styled-components_: Biblioteca para isolar o css dentro do escopo do componenete, para que os estilos de um componente não afetem os estilos de outro componente.<br/>
-_react-hook-form_: Biblioteca para controlar e validar formulários. Validar se os dados estão no formato correto.<br/>
-_react-icons_: Biblioteca que disponibiliza vários tipos de ícones para serem utilizados na aplicação.<br/>
-_polished_: Biblioteca para escrever estilos dentro do javascript.<br/>
+_axios_: Biblioteca para consumir dados da API, utilizando promises.<br/><br/>
+_react-router-dom_: Biblioteca par gerenciar as rotas da aplicação.<br/><br/>
+_styled-components_: Biblioteca para isolar o css dentro do escopo do componenete, para que os estilos de um componente não afetem os estilos de outro componente.<br/><br/>
+_react-hook-form_: Biblioteca para controlar e validar formulários. Validar se os dados estão no formato correto.<br/><br/>
+_react-icons_: Biblioteca que disponibiliza vários tipos de ícones para serem utilizados na aplicação.<br/><br/>
+_polished_: Biblioteca para escrever estilos dentro do javascript.<br/><br/>
 
 ### Back-end
 
 No back-end, forma suadas as seguintes bibliotecas:
 
-_express_: É um framework que oferece soluções para gerenciar requisições, definir configurações da aplicação, adicionar middlewares nas requisições e integrar view engines.  <br/>
-_typeorm_: É um ORM que pode rodar no Nodejs e pode ser usado com Typescript.  <br/>
-_uuidv4_: Biblioteca usada para gerar um identificador único universal. Muito útil para usar nas colunas de ID das tabelas.   <br/>
+_express_: É um framework que oferece soluções para gerenciar requisições, definir configurações da aplicação, adicionar middlewares nas requisições e integrar view engines.  <br/><br/>
+_typeorm_: É um ORM que pode rodar no Nodejs e pode ser usado com Typescript.  <br/><br/>
+_uuidv4_: Biblioteca usada para gerar um identificador único universal. Muito útil para usar nas colunas de ID das tabelas.   <br/><br/>
 
 ## Colocando a API no ar e rodando a Aplicação
 
