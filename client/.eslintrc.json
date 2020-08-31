@@ -35,6 +35,8 @@
     "import/prefer-default-export": "off",
     "camelcase":"off",
     "prettier/prettier": "error",
+    "eqeqeq": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

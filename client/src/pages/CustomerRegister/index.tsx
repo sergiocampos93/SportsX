@@ -10,6 +10,8 @@ import {
   RadioContent,
   ClassificationContent,
   Select,
+  TextArea,
+  PhonesContent,
 } from './styles';
 
 import api from '../../services/api';
@@ -19,21 +21,25 @@ import InputError from '../../components/InputError';
 const CustomerRegister: React.FC = () => {
   type FormData = {
     name: string;
-    isLegalEntity: boolean;
+    isLegalEntity: boolean | number;
     cpf_cnpj: string;
     cep: string;
     email: string;
     classification: string;
-    phone: number;
+    phones: string;
   };
   const { register, handleSubmit, errors } = useForm<FormData>();
   return (
     <Container>
       <PageTitle>Cadastrar cliente</PageTitle>
       <Form
-        onSubmit={handleSubmit(async formData => {
-          console.log(formData);
-          // await api.post('customers', formData);
+        onSubmit={handleSubmit(async ({ phones, ...rest }) => {
+          const formatedData = {
+            phones: phones.split(/\s/),
+            ...rest,
+          };
+          console.log(formatedData);
+          // await api.post('customers', formatedData);
         })}
       >
         <RadioContent>
@@ -42,7 +48,7 @@ const CustomerRegister: React.FC = () => {
               type="radio"
               id="pf"
               name="isLegalEntity"
-              value="false"
+              value={0}
               ref={register()}
               defaultChecked
             />
@@ -53,7 +59,7 @@ const CustomerRegister: React.FC = () => {
               type="radio"
               id="pj"
               name="isLegalEntity"
-              value="true"
+              value={1}
               ref={register()}
             />
             Pessoa Jurídica
@@ -118,14 +124,17 @@ const CustomerRegister: React.FC = () => {
             <option value="preferencial">Preferencial</option>
           </Select>
         </ClassificationContent>
-
-        <Input
-          type="tel"
-          name="phone"
-          placeholder="Telefone"
-          ref={register()}
-        />
-        {errors.phone && <InputError>{errors.phone.message}</InputError>}
+        <PhonesContent>
+          <label htmlFor="phones">Telefones:</label>
+          <TextArea
+            placeholder="Coloque os telefones separados por espaço ou por linhas"
+            name="phones"
+            id="phones"
+            rows={5}
+            cols={12}
+            ref={register()}
+          />
+        </PhonesContent>
 
         <Button type="submit">Cadastrar</Button>
       </Form>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ export const PageTitle = styled.h2`
 export const Form = styled.form`
   display: flex;
   flex: 1;
+  width: 300px;
   flex-direction: column;
 `;
 
@@ -33,6 +35,10 @@ export const Button = styled.button`
   margin-top: 25px;
   padding: 10px;
   font-size: 18px;
+
+  &:hover {
+    background: ${shade(0.2, '#0f79af')};
+  }
 `;
 
 export const RadioContent = styled.div`
@@ -43,10 +49,22 @@ export const RadioContent = styled.div`
 
 export const ClassificationContent = styled.label`
   display: flex;
+  flex: 1;
   flex-direction: column;
   margin-top: 10px;
 `;
 
 export const Select = styled.select`
   padding: 8px;
+  outline: 0;
+`;
+
+export const TextArea = styled.textarea`
+  outline: 0;
+`;
+export const PhonesContent = styled.div`
+  margin-top: 15px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 `;

@@ -20,7 +20,7 @@ export const Header = styled.header`
   width: 100%;
   background: #0f171e;
 
-  && h1 {
+  & h1 {
     text-align: left;
     margin-left: 20px;
     font-weight: bold;
