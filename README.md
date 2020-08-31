@@ -19,7 +19,7 @@ _polished_: Biblioteca para escrever estilos dentro do javascript.<br/><br/>
 
 ### Back-end
 
-No back-end, forma suadas as seguintes bibliotecas:
+No back-end, foram usadas as seguintes bibliotecas:
 
 _express_: É um framework que oferece soluções para gerenciar requisições, definir configurações da aplicação, adicionar middlewares nas requisições e integrar view engines.  <br/><br/>
 _typeorm_: É um ORM que pode rodar no Nodejs e pode ser usado com Typescript.  <br/><br/>
