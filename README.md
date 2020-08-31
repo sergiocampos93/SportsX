@@ -14,7 +14,7 @@ Agora é hora de executar a aplicação front-end. Entre dentro da pasta _client
 
 ## Criando container usando o docker:
 
-Guia de instalação do docker: https://github.com/sergiocampos93/SportsX
+Guia de instalação do docker: https://www.notion.so/Instalando-Docker-6290d9994b0b4555a153576a1d97bee2
 
 Após instalar o docker no seu computador, utilize o comando abaixo como template:
 
