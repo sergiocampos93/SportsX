@@ -4,7 +4,7 @@
 
 ### Padrões de projetos
 
-Para manter o código de toda a aplicação padronizado, foram utilizadas 3 ferramentas: _EditoConfig_, _EsLint_ e _Prettier_. Todo o projeto foi desenvolvido utilizando typescript.
+Para manter o código de toda a aplicação padronizado, foram utilizadas 3 ferramentas: _EditorConfig_, _ESLint_ e _Prettier_. Todo o projeto foi desenvolvido utilizando typescript.
 
 ### Front-end
 
