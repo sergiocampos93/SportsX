@@ -14,6 +14,8 @@ Agora é hora de executar a aplicação front-end. Entre dentro da pasta _client
 
 ## Criando container usando o docker:
 
+Guia de instalação do docker: https://github.com/sergiocampos93/SportsX
+
 Após instalar o docker no seu computador, utilize o comando abaixo como template:
 
 _docker run **--name** sportsx_postgres **-e POSTGRES_PASSWORD**=docker **-p** 5432:5432 **-d** postgres:12.3_
