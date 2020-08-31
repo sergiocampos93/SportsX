@@ -80,7 +80,7 @@ const CustomerList: React.FC = () => {
                 <Ul>
                   {customer.phones.map(phone =>
                     phone.customer_id === customer.id ? (
-                      <li>{phone.phone_number}</li>
+                      <li key={phone.id}>{phone.phone_number}</li>
                     ) : null,
                   )}
                 </Ul>

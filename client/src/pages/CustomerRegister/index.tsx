@@ -30,9 +30,6 @@ const CustomerRegister: React.FC = () => {
   };
   const { register, handleSubmit, errors } = useForm<FormData>();
   const [entity, setEntity] = useState(false);
-  const teste = () => {
-    console.log('teste');
-  };
   return (
     <Container>
       <PageTitle>Cadastrar cliente</PageTitle>
