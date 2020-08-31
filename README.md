@@ -8,6 +8,8 @@ Após instalar o postgres e criar o banco de dados, abra um terminal e entre no 
 
 Após a instalação de todas as dependências, é necessário criar as tabelas no banco de dados. Para isso, é necessário que você execute as _migrations_ do projeto. Sendo assim, em um terminal, execute o comando: _yarn typeorm migration:run_ ou _npm run-script typeorm migration:run_.
 
+Por fim, execute a API, usando o comando _yarn start_ ou _npm start_. Se tudo ocorrer bem, irá aparecer uma mensagem no console do terminal com o seguinte texto: _Server is running on port 3333_.
+
 ## Criando container usando o docker:
 
 1 - Template comando:
