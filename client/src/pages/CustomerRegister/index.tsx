@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 
 import { useHistory } from 'react-router-dom';
 
+import { FiArrowLeft } from 'react-icons/fi';
+
 import {
   Container,
   PageTitle,
@@ -14,6 +16,7 @@ import {
   Select,
   TextArea,
   PhonesContent,
+  BackToMainPage,
 } from './styles';
 
 import api from '../../services/api';
@@ -56,6 +59,10 @@ const CustomerRegister: React.FC<{ location: { state: Customer } }> = ({
   const [entity, setEntity] = useState(false);
   return (
     <Container>
+      <BackToMainPage onClick={() => history.push('/')}>
+        <FiArrowLeft />
+        Voltar
+      </BackToMainPage>
       <PageTitle>
         {isNewRegister ? 'Cadastrar Cliente' : 'Atualizar Cliente'}
       </PageTitle>

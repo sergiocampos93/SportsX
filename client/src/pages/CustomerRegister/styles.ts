@@ -68,3 +68,14 @@ export const PhonesContent = styled.div`
   flex: 1;
   flex-direction: column;
 `;
+
+export const BackToMainPage = styled.div`
+  cursor: pointer;
+  background: #0f171e;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 15px;
+  left: 0;
+  font-size: 40px;
+`;
