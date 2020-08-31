@@ -45,8 +45,8 @@ const CustomerRegister: React.FC = () => {
               .filter(phone => phone.length >= 8),
             ...rest,
           };
-          console.log(formatedData);
           await api.post('customers', formatedData);
+          alert('Cliente cadastrado com sucesso!');
         })}
       >
         <RadioContent>
@@ -80,13 +80,14 @@ const CustomerRegister: React.FC = () => {
           }
           name="cpf_cnpj"
           ref={register({
-            required: 'Campo obrigatório.',
+            required: entity ? 'CNPJ obrigatório.' : 'CPF obrigatório.',
             pattern: {
               value: entity ? /\d{14}/ : /\d{11}/,
-              message: 'Campo inválido. Somente números',
+              message: entity ? 'CNPJ inválido.' : 'CPF inválido.',
             },
           })}
         />
+        {errors.cpf_cnpj && <InputError>{errors.cpf_cnpj.message}</InputError>}
         <Input
           name="name"
           placeholder="Nome / Razão Social"
@@ -106,7 +107,7 @@ const CustomerRegister: React.FC = () => {
         <Input
           name="cep"
           type="number"
-          placeholder="CEP"
+          placeholder="CEP (somente números)"
           ref={register({
             required: 'Campo obrigatório',
             minLength: {

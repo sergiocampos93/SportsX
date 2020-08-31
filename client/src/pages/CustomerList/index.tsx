@@ -45,6 +45,7 @@ const CustomerList: React.FC = () => {
   }, []);
   async function handleRemodeCustomer(id: string): Promise<void> {
     await api.delete(`/customers/${id}`);
+    alert('Cliente apagado com sucesso!');
     const newList = customers.filter(customer => customer.id !== id);
     setCustomers(newList);
   }
