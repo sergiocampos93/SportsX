@@ -19,6 +19,12 @@ _polished_: Biblioteca para escrever estilos dentro do javascript.<br/>
 
 ### Back-end
 
+No back-end, forma suadas as seguintes bibliotecas:
+
+_express_: É um framework que oferece soluções para gerenciar requisições, definir configurações da aplicação, adicionar middlewares nas requisições e integrar view engines.  <br/>
+_typeorm_: É um ORM que pode rodar no Nodejs e pode ser usado com Typescript.  <br/>
+_uuidv4_: Biblioteca usada para gerar um identificador único universal. Muito útil para usar nas colunas de ID das tabelas.   <br/>
+
 ## Colocando a API no ar e rodando a Aplicação
 
 Para colocar a API no ar, é necessário que você instale o postgres, **versão 12.3**, no seu computador. Eu recomendo que você instale o docker e crie um container, para garantir que não vai haver nenhum conflito com os softwares já instalados e configurações do seu computador. Após a instalação do postgres, você deve criar um banco de dados com o nome _sportsx_database_. Se quiser usar um nome diferente para o banco de dados, basta entrar dentro do arquivo _ormconfig.json_ e, na propriedade _database_, colocar o nome que desejar.
