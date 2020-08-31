@@ -33,13 +33,16 @@ const CustomerRegister: React.FC = () => {
     <Container>
       <PageTitle>Cadastrar cliente</PageTitle>
       <Form
-        onSubmit={handleSubmit(async ({ phones, ...rest }) => {
+        onSubmit={handleSubmit(async ({ phones, isLegalEntity, ...rest }) => {
           const formatedData = {
-            phones: phones.split(/\s/),
+            isLegalEntity: isLegalEntity == 1,
+            phones: phones
+              .split(/(\r\n|\r|\n)/)
+              .filter(phone => phone.length >= 8),
             ...rest,
           };
           console.log(formatedData);
-          // await api.post('customers', formatedData);
+          await api.post('customers', formatedData);
         })}
       >
         <RadioContent>
@@ -65,7 +68,7 @@ const CustomerRegister: React.FC = () => {
             Pessoa Jurídica
           </label>
         </RadioContent>
-
+        <Input placeholder="CPF / CNPJ" name="cpf_cnpj" ref={register()} />
         <Input
           name="name"
           placeholder="Nome / Razão Social"
@@ -127,7 +130,7 @@ const CustomerRegister: React.FC = () => {
         <PhonesContent>
           <label htmlFor="phones">Telefones:</label>
           <TextArea
-            placeholder="Coloque os telefones separados por espaço ou por linhas"
+            placeholder="Separe cada um dos telefones por linhas."
             name="phones"
             id="phones"
             rows={5}
